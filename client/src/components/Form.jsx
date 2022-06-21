@@ -43,11 +43,20 @@ const Form = () =>{
             }
         }
         if (input.rating < 1 || input.rating > 5) errors.rating = 'add a rating of 1 out of 5';
-        if(input.genres.length < 1) {
-            errors.genres = "Add genres"
+        if(input.genres.length < 1 ) {
+            errors.genres = "Add genders"
         }
-        if(input.platforms.length < 1) {
+        if(input.genres.length > 5 ) {
+            errors.genres = "Add genders to 1 from 5"
+        }
+        if(input.platforms.length < 1 ) {
             errors.platforms = "Add platforms"
+        }
+        if(input.platforms.length > 5 ) {
+            errors.platforms = "Add platforms to 1 from 5"
+        }
+        if(input.released[0] === '1'){
+            errors.released = 'add (/) between the years, month, days'
         }
         return errors;
     }
@@ -73,25 +82,32 @@ const Form = () =>{
         if(errors.name || errors.description || errors.rating 
         || errors.diets || (input.name === '')) return alert("add date")
         dispatch(addGame(input))
+        alert("Game created")
         nav("/home", { replace : true });
     };
 
     const handleSelect = (e) =>{
-        setInput({
+        setInput(input => ({
             ...input,
             genres: [...input.genres, e.target.value]
-        })
-        console.log(input.genres)
+        }))
+        setErrors(validate({
+            ...input,
+            genres: [...input.genres, e.target.value]
+        }))
     };
     
     const handleSelect2 = (e) => {
         setInput(input => ({
             ...input,
-            platforms: [...input.platforms, ...e.target.value]
+            platforms: [...input.platforms, e.target.value]
+        }))
+        setErrors(validate({
+            ...input,
+            platforms: [...input.platforms, e.target.value]
         }))
     };
     
-
     return(
         <div>
             <form onSubmit={(e) => handleOnSub(e)}>
@@ -136,7 +152,12 @@ const Form = () =>{
                 )
             }
             <label>Released</label>
-            <input type="date" name='released' value={input.released} onChange={(e) => handleChange(e)}/>
+            <input type="date" name='released' placeholder='00/00/0000' value={input.released} onChange={(e) => handleChange(e)}/>
+            {
+                errors.released && (
+                    <p>{errors.released}</p>
+                )
+            }
             <label >Rating</label>
             <input type="number" name='rating' value={input.rating} onChange={(e) => handleChange(e)}/>
             {
