@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     platforms:{
-      type: DataTypes.JSON,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     }
   },{timestamps: false});
