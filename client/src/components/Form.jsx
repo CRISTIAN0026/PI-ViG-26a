@@ -22,7 +22,6 @@ const Form = () =>{
         genres:[]
     });
     
-    
     const validate = () => {
         let errors = {}
         if (input.name.length < 2 ) errors.name = 'Add recipe name';
@@ -44,15 +43,14 @@ const Form = () =>{
             }
         }
         if (input.rating < 1 || input.rating > 5) errors.rating = 'add a rating of 1 out of 5';
-        if(input.genres.length > 5) {
-            errors.genres = "Genres limit reached"
+        if(input.genres.length < 1) {
+            errors.genres = "Add genres"
         }
-        if(input.platforms.length > 5) {
-            errors.genres = "Platforms limit reached"
+        if(input.platforms.length < 1) {
+            errors.platforms = "Add platforms"
         }
         return errors;
     }
-
 
     useEffect(() =>{
         dispatch(getGenres())
@@ -62,12 +60,11 @@ const Form = () =>{
     const handleChange = (e) =>{
         setInput({
             ...input,
-            [e.target.name] : e.target.value
+            [e.target.name] : e.target.value,
         })
-
         setErrors(validate({
             ...input,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         }));
     };
     
@@ -90,7 +87,7 @@ const Form = () =>{
     const handleSelect2 = (e) => {
         setInput(input => ({
             ...input,
-            platforms: [...input.platforms, e.target.value]
+            platforms: [...input.platforms, ...e.target.value]
         }))
     };
     
