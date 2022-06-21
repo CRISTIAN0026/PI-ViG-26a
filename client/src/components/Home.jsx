@@ -12,12 +12,17 @@ const Home = () =>{
         dispatch(getGames())
     },[dispatch])
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        dispatch(getGames())
+    }
     return(
         <div>
             <div>
                 <h1>App VideoGames</h1>
             </div>
             <Link to='/game'><button>CREATE GAME</button></Link>
+            <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
             <div>
                 {
                     allGames?.map(c => {
