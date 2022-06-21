@@ -3,35 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getGenres, addGame, getPlatform } from '../redux/actions';
 import { useNavigate } from 'react-router-dom';
 
-const validate = () => {
-    let errors = {}
-    if (input.name.length < 2 ) errors.name = 'Add recipe name';
-    for (let i = 0; i < input.name.length; i++) {
-        let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
-        for (let j = 0; j < num.length; j++) {
-            if(input.name[i] === num[j]){
-                errors.name = "only letters"
-            }
-        }
-    }
-    if (input.description.length < 2) errors.description = 'Add a description';
-    for (let k = 0; k < input.description.length; k++) {
-        let numm = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
-        for (let l = 0; l < numm.length; l++) {
-            if(input.description[k] === numm[l]){
-                errors.description = "only letters"
-            }
-        }
-    }
-    if (input.rating < 1 || input.rating > 5) errors.rating = 'add a rating of 1 out of 5';
-    if(input.genres.length > 5) {
-        errors.genres = "Genres limit reached"
-    }
-    if(input.platforms.length > 5) {
-        errors.genres = "Platforms limit reached"
-    }
-    return errors;
-}
+
 
 const Form = () =>{
     let dispatch = useDispatch();
@@ -49,6 +21,38 @@ const Form = () =>{
         platforms:[],
         genres:[]
     });
+    
+    
+    const validate = () => {
+        let errors = {}
+        if (input.name.length < 2 ) errors.name = 'Add recipe name';
+        for (let i = 0; i < input.name.length; i++) {
+            let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+            for (let j = 0; j < num.length; j++) {
+                if(input.name[i] === num[j]){
+                    errors.name = "only letters"
+                }
+            }
+        }
+        if (input.description.length < 2) errors.description = 'Add a description';
+        for (let k = 0; k < input.description.length; k++) {
+            let numm = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+            for (let l = 0; l < numm.length; l++) {
+                if(input.description[k] === numm[l]){
+                    errors.description = "only letters"
+                }
+            }
+        }
+        if (input.rating < 1 || input.rating > 5) errors.rating = 'add a rating of 1 out of 5';
+        if(input.genres.length > 5) {
+            errors.genres = "Genres limit reached"
+        }
+        if(input.platforms.length > 5) {
+            errors.genres = "Platforms limit reached"
+        }
+        return errors;
+    }
+
 
     useEffect(() =>{
         dispatch(getGenres())
@@ -60,6 +64,11 @@ const Form = () =>{
             ...input,
             [e.target.name] : e.target.value
         })
+
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }));
     };
     
     const handleOnSub = (e) =>{
@@ -84,12 +93,7 @@ const Form = () =>{
             platforms: [...input.platforms, e.target.value]
         }))
     };
-
-    setErrors(validate({
-        ...input,
-        [e.target.name]: e.target.value
-    }));
-
+    
 
     return(
         <div>
