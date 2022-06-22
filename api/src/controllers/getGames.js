@@ -14,6 +14,7 @@ const getApiInfo = async () =>{
         return({
             id: g.id,
             name: g.name,
+            rating: g.rating,
             image: g.background_image,
             genres: g.genres.map(g =>{
                 return{name: g.name}

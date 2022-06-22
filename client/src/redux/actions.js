@@ -6,6 +6,9 @@ export let ADD_GAME = 'ADD_GAME';
 export let GET_DETAILS = 'GET_DETAILS';
 export let GET_BY_NAME = 'GET_BY_NAME';
 export let GET_PLATFORM = 'GET_PLATFORM';
+export let FILTER_GENRES = 'FILTER_GENRES';
+export let FILTER_RATING = 'FILTER_RATING';
+export let FILTER_ALPHABETICALLY = 'FILTER_ALPHABETICALLY';
 
 
 export const getGames = () => {
@@ -86,5 +89,26 @@ export const getPlatform = () => {
         } catch (error) {
             return error
         }
+    }
+}
+
+export const filterGenres = (payload) => {
+        return {
+            type:FILTER_GENRES,
+            payload
+        }
+}
+
+export const filterAlphabetically = (payload) => {
+    return {
+        type:FILTER_ALPHABETICALLY,
+        payload
+    }
+}
+
+export const filterRating = (payload) => {
+    return {
+        type:FILTER_RATING,
+        payload
     }
 }

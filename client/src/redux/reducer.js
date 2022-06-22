@@ -1,5 +1,5 @@
 
-import { GET_GAMES, GET_DETAILS, GET_GENRES, ADD_GAME, GET_BY_NAME, GET_PLATFORM } from './actions';
+import { GET_GAMES, GET_DETAILS, GET_GENRES, ADD_GAME, GET_BY_NAME, GET_PLATFORM, FILTER_GENRES, FILTER_ALPHABETICALLY, FILTER_RATING } from './actions';
 
 let initialState = {
     games:[],
@@ -41,6 +41,47 @@ const reDucer = (state = initialState, action) =>{
                 ...state,
                 platform: action.payload
             }
+        case FILTER_GENRES:
+            const allGames = state.allGames
+            const rex = allGames.filter(g => g.genres?.some(g => g.name.toLowerCase() === action.payload.toLowerCase()))
+            return {
+                ...state,
+                games: rex
+            }
+        case FILTER_ALPHABETICALLY:
+            let game = [...state.games]       
+        game = action.payload === 'az' ?
+        state.games.sort(function(a, b) {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+            return 0;
+        }) :
+        state.games.sort(function(a, b) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+            return 0;
+        });          
+        return {
+            ...state,
+            games: game
+        };
+        case FILTER_RATING:
+            let rating1 = [...state.games] 
+            rating1 = action.payload === 'asc' ?
+            state.games.sort(function(a, b) {
+            if (a.rating > b.rating) return 1;
+            if (a.rating < b.rating) return -1;
+            return 0;
+        }) :
+        state.games.sort(function(a, b) {
+            if (a.rating < b.rating) return 1;
+            if (a.rating > b.rating) return -1;
+            return 0;
+        });
+        return {
+            ...state,
+            games: rating1
+        };
         default:
             return state
     }
