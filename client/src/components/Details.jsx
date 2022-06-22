@@ -28,7 +28,8 @@ const Details = () =>{
                                     <img src={d.image} alt="not found" width='500px' height='500px'/>
                                     <h3>Rating: {d.rating}</h3>
                                     <h3>Released: {d.released}</h3>
-                                    <h3>Platforms: {d.platforms[0].platform ?  d.platforms?.map(p => p.platform + ' - ') : d.platforms }</h3>
+                                    <h3>Genres : {d.genres?.map(n => n.name + ', ')}</h3>
+                                    <h3>Platforms: {d.platforms[0].platform ?  d.platforms?.map(p => p.platform + ' / ') : d.platforms.map(d => d + ' / ') }</h3>
                                     <p>Description: {d.description}</p>
                                 </div>
                             )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGenres, addGame, getPlatform } from '../redux/actions';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 
@@ -26,7 +26,7 @@ const Form = () =>{
         let errors = {}
         if (input.name.length < 2 ) errors.name = 'Add recipe name';
         for (let i = 0; i < input.name.length; i++) {
-            let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+            let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ@"
             for (let j = 0; j < num.length; j++) {
                 if(input.name[i] === num[j]){
                     errors.name = "only letters"
@@ -35,7 +35,7 @@ const Form = () =>{
         }
         if (input.description.length < 2) errors.description = 'Add a description';
         for (let k = 0; k < input.description.length; k++) {
-            let numm = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+            let numm = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ@"
             for (let l = 0; l < numm.length; l++) {
                 if(input.description[k] === numm[l]){
                     errors.description = "only letters"
@@ -55,10 +55,12 @@ const Form = () =>{
         if(input.platforms.length > 5 ) {
             errors.platforms = "Add platforms to 1 from 5"
         }
-        if(input.released[0] === '1'){
-            errors.released = 'add (/) between the years, month, days'
+        let rat = input.released.slice(0,5)
+        let ret = input.released.slice(0,4)
+        if(rat < 1950 || rat > 2022 || ret < 1950 || ret > 2022){
+            errors.released = 'add a year between 1950 and 2022'
         }
-        return errors;
+        return errors
     }
 
     useEffect(() =>{
@@ -67,10 +69,10 @@ const Form = () =>{
     }, [dispatch]);
 
     const handleChange = (e) =>{
-        setInput({
+        setInput(input => ({
             ...input,
             [e.target.name] : e.target.value,
-        })
+        }))
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value,
@@ -108,6 +110,7 @@ const Form = () =>{
         }))
     };
     
+    console.log(input.released)
     return(
         <div>
             <form onSubmit={(e) => handleOnSub(e)}>
@@ -169,6 +172,7 @@ const Form = () =>{
             <input type="text" name='image' value={input.image} onChange={(e) => handleChange(e)}/>
             <button>CREATED GAME</button>
             </form>
+            <Link to='/home'><button>RETURN GAMES</button></Link>
         </div>
     )
 }
