@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGames } from '../redux/actions';
 import Card from './Card';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const Home = () =>{
     let allGames = useSelector(state => state.games)
@@ -21,6 +22,7 @@ const Home = () =>{
             <div>
                 <h1>App VideoGames</h1>
             </div>
+            <SearchBar/>
             <Link to='/game'><button>CREATE GAME</button></Link>
             <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
             <div>
