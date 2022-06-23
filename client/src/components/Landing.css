@@ -16,7 +16,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 15px;
     width: 500px;
-    transition: color 0.5s, background 0.5s;
+    transition: color 2s, background 2s;
 }
 
 .page1:hover{
