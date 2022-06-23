@@ -16,8 +16,13 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 15px;
     width: 500px;
+    transition: color 0.5s, background 0.5s;
 }
 
+.page1:hover{
+    background-color: gold;
+    border: 1px solid rgb(36, 2, 2);
+}
 .page{
     margin-top: 100px;
 }
