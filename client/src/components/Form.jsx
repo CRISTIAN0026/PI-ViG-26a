@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGenres, addGame, getPlatform } from '../redux/actions';
 import { useNavigate, Link } from 'react-router-dom';
-
+import './Form.css';
 
 
 const Form = () =>{
@@ -109,17 +109,17 @@ const Form = () =>{
             platforms: [...input.platforms, e.target.value]
         }))
     };
-    
-    console.log(input.released)
+    console.log(input.platforms)
+    console.log(input.genres)
     return(
-        <div>
+        <div className='form'>
             <form onSubmit={(e) => handleOnSub(e)}>
             <label>Genres</label>
             <select onChange={(e) => handleSelect(e)} defaultValue='genres'>
                 <option value='genres' disabled>ADD GENRES</option>
             {
                 gen?.map(g => (
-                    <option value={g.name} key={g.name}>{g.name}</option>
+                    <option value={g.name} key={g.name} disabled={input.genres.includes(g.name) ? true : false}>{g.name}</option>
                 ))
             }
             </select>
@@ -133,7 +133,7 @@ const Form = () =>{
             <option value='platforms' disabled>ADD PLATFORMS</option>
             {
                 plat?.map(p => (
-                    <option key={p.name} value={p.name}>{p.name}</option>
+                    <option value={p.name} key={p.name} disabled={input.platforms.includes(p.name) ? true : false}>{p.name}</option>
                 ))
             }
             </select>

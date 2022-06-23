@@ -1,0 +1,10 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../img/ADD.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1366px;
+    height: 635px;
+}
