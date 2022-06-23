@@ -15,6 +15,7 @@ const SearchBar = () =>{
         e.preventDefault()
         dispatch(getByName(input))
     }
+    
     return (
         <div>
             <input 

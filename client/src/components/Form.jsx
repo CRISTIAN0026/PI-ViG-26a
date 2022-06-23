@@ -24,7 +24,7 @@ const Form = () =>{
     
     const validate = () => {
         let errors = {}
-        if (input.name.length < 2 ) errors.name = 'Add recipe name';
+        if (input.name.length < 2 ) errors.name = 'Add game name';
         for (let i = 0; i < input.name.length; i++) {
             let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ@"
             for (let j = 0; j < num.length; j++) {
@@ -44,13 +44,13 @@ const Form = () =>{
         }
         if (input.rating < 1 || input.rating > 5) errors.rating = 'add a rating of 1 out of 5';
         if(input.genres.length < 1 ) {
-            errors.genres = "Add genders"
+            errors.genres = "Add genders min 2 genres"
         }
         if(input.genres.length > 5 ) {
             errors.genres = "Add genders to 1 from 5"
         }
         if(input.platforms.length < 1 ) {
-            errors.platforms = "Add platforms"
+            errors.platforms = "Add platforms min 2 platforms"
         }
         if(input.platforms.length > 5 ) {
             errors.platforms = "Add platforms to 1 from 5"
@@ -114,8 +114,9 @@ const Form = () =>{
     return(
         <div>
             <form onSubmit={(e) => handleOnSub(e)}>
-            <label>Genre</label>
-            <select onChange={(e) => handleSelect(e)}>
+            <label>Genres</label>
+            <select onChange={(e) => handleSelect(e)} defaultValue='genres'>
+                <option value='genres' disabled>ADD GENRES</option>
             {
                 gen?.map(g => (
                     <option value={g.name} key={g.name}>{g.name}</option>
@@ -128,7 +129,8 @@ const Form = () =>{
                 )
             }
             <label>Platforms</label>
-            <select onChange={e => handleSelect2(e)}>
+            <select onChange={e => handleSelect2(e)} defaultValue='platforms'>
+            <option value='platforms' disabled>ADD PLATFORMS</option>
             {
                 plat?.map(p => (
                     <option key={p.name} value={p.name}>{p.name}</option>

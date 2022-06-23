@@ -73,7 +73,7 @@ export const getByName = (payload) => {
                 payload: response
             })
         } catch (error) {
-            return alert(error)
+            return alert('¡Game not found')
         }
     }
 }
@@ -96,7 +96,7 @@ export const filterGenres = (payload) => {
         return {
             type:FILTER_GENRES,
             payload
-        }
+        }        
 }
 
 export const filterAlphabetically = (payload) => {
