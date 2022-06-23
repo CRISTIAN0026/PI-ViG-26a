@@ -1,9 +1,49 @@
 #landing{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-image: url('../img/Landing.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width:1366px;
     height: 635px;
+}
+
+.page1{
+    margin-top: 23px;
+    display: inline-flex;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 15px;
+    width: 500px;
+}
+
+.page{
+    margin-top: 100px;
+}
+
+#page{
+    /* position: relative;
+    display: inline-block; */
+    font-size: 15px;
+    border: 1px solid rgb(36, 2, 2);
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+
+#page1{
+    text-decoration: none;
+    color: black;
+}
+
+#page:hover{
+    background-color: gold;
+    color: black;
+    border: 1px solid black;
 }

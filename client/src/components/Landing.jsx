@@ -6,11 +6,12 @@ const Landing = () => {
 
     return( 
         <div id="landing">
-            <div>
-            <h1>Welcome to the world of video games</h1>
+            <div className='page1'>
+                
+                <Link to='/home' id="page1"><h1>Welcome to the world of video games</h1></Link>
             </div>
-            <div>
-            <Link to='/home'><button>SEE VIDEO GAMES</button></Link>
+            <div className='page'>
+            <Link to='/home'><button id='page'>SEE VIDEO GAMES</button></Link>
             </div>
         </div>
     )
