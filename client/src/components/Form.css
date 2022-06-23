@@ -12,7 +12,10 @@
 .form1{
     display: inline;
     width: 750px;
+    margin-top: 100px;
 }
+
+
 
 #select{
     display: flex;
