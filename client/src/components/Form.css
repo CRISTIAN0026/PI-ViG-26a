@@ -8,3 +8,12 @@
     width: 1366px;
     height: 635px;
 }
+
+.form1{
+    display: inline;
+    width: 750px;
+}
+
+#select{
+    display: flex;
+}

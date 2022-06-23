@@ -113,7 +113,10 @@ const Form = () =>{
     console.log(input.genres)
     return(
         <div className='form'>
+            <div className='form1'>
             <form onSubmit={(e) => handleOnSub(e)}>
+            <div id='select'>
+            <div>
             <label>Genres</label>
             <select onChange={(e) => handleSelect(e)} defaultValue='genres'>
                 <option value='genres' disabled>ADD GENRES</option>
@@ -128,6 +131,8 @@ const Form = () =>{
                     <p>{errors.genres}</p>
                 )
             }
+            </div>
+            <div>
             <label>Platforms</label>
             <select onChange={e => handleSelect2(e)} defaultValue='platforms'>
             <option value='platforms' disabled>ADD PLATFORMS</option>
@@ -142,6 +147,9 @@ const Form = () =>{
                     <p>{errors.platforms}</p>
                 )
             }
+            </div>
+            </div>
+            <div>
             <label>Name</label>
             <input type="text" name='name' value={input.name} onChange={(e) => handleChange(e)}/>
             {
@@ -149,13 +157,17 @@ const Form = () =>{
                     <p>{errors.name}</p>
                 )
             }
+            </div>
+            <div>
             <label>Description</label>
-            <input type="text" name='description' value={input.description} onChange={(e) => handleChange(e)}/>
+            <textarea type="text" name="description" id="" cols="10" rows="5" value={input.description} onChange={(e) => handleChange(e)}></textarea>
             {
                 errors.description && (
                     <p>{errors.description}</p>
                 )
             }
+            </div>
+            <div>
             <label>Released</label>
             <input type="date" name='released' placeholder='00/00/0000' value={input.released} onChange={(e) => handleChange(e)}/>
             {
@@ -163,6 +175,8 @@ const Form = () =>{
                     <p>{errors.released}</p>
                 )
             }
+            </div>
+            <div>
             <label >Rating</label>
             <input type="number" name='rating' value={input.rating} onChange={(e) => handleChange(e)}/>
             {
@@ -170,11 +184,17 @@ const Form = () =>{
                     <p>{errors.rating}</p>
                 )
             }
+            </div>
+            <div>
             <label>Image</label>
             <input type="text" name='image' value={input.image} onChange={(e) => handleChange(e)}/>
+            </div>
             <button>CREATED GAME</button>
             </form>
+            <div>
             <Link to='/home'><button>RETURN GAMES</button></Link>
+            </div>
+            </div>
         </div>
     )
 }
