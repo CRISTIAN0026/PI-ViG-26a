@@ -14,7 +14,7 @@ export let FILTER_ALPHABETICALLY = 'FILTER_ALPHABETICALLY';
 export const getGames = () => {
     return async (dispatch) => {
         try {
-            let response = (await axios('http://localhost:3001/videogames')).data
+            let response = (await axios('/videogames')).data
             return dispatch({
                 type:GET_GAMES,
                 payload: response 
@@ -28,7 +28,7 @@ export const getGames = () => {
 export const getGenres = () => {
     return async (dispatch) => {
     try {
-        let response = (await axios('http://localhost:3001/genres')).data
+        let response = (await axios('/genres')).data
         return dispatch({
             type: GET_GENRES,
             payload: response
@@ -42,7 +42,7 @@ export const getGenres = () => {
 export const addGame = (payload) => {
     return async () => {
         try {
-            let response = await axios.post('http://localhost:3001/videogames', payload)
+            let response = await axios.post('/videogames', payload)
             return response
         } catch (error) {
             return alert('Game not created')
@@ -53,7 +53,7 @@ export const addGame = (payload) => {
 export const getDetails = (id) => {
     return async (dispatch) => {
         try {
-            let response = (await axios(`http://localhost:3001/videogames/${id}`)).data
+            let response = (await axios(`/videogames/${id}`)).data
             return dispatch({
                 type: GET_DETAILS,
                 payload: response
@@ -67,7 +67,7 @@ export const getDetails = (id) => {
 export const getByName = (payload) => {
     return async (dispatch) => {
         try {
-            let response = (await axios(`http://localhost:3001/videogames?name=${payload}`)).data
+            let response = (await axios(`/videogames?name=${payload}`)).data
             return dispatch({
                 type: GET_BY_NAME,
                 payload: response
@@ -81,7 +81,7 @@ export const getByName = (payload) => {
 export const getPlatform = () => {
     return async (dispatch) => {
         try {
-            let response = (await axios('http://localhost:3001/platform')).data
+            let response = (await axios('/platform')).data
             return dispatch({
                 type: GET_PLATFORM,
                 payload: response

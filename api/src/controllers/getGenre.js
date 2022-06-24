@@ -4,7 +4,7 @@ const { Genre } = require('../db');
 
 const getApiGenre = async() =>{
     try {
-        let response = (await axios(`https://api.rawg.io/api/genres?key=${process.env.YOUR_API_KEY}`)).data.results
+        let response = (await axios(`https://api.rawg.io/api/genres?key=8add5b0008ac41029ef27f4754c5f16f`)).data.results
     let api = await response.map(g => {
         return({name: g.name})
     })

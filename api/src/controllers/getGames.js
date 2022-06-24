@@ -4,7 +4,7 @@ const  response51  = require('../plat/Platform')
 
 const getApiInfo = async () =>{
     try {
-        let response = (await axios(`https://api.rawg.io/api/games?key=${process.env.YOUR_API_KEY}`)).data
+        let response = (await axios(`https://api.rawg.io/api/games?key=8add5b0008ac41029ef27f4754c5f16f`)).data
         let res = (await axios(`${response.next}`)).data
         let res1= (await axios(`${res.next}`)).data
         let res2= (await axios(`${res1.next}`)).data
@@ -56,7 +56,7 @@ const allInfo = async() =>{
 
 const getDetails = async(id) =>{
     try {
-        let response = (await axios(`https://api.rawg.io/api/games/${id}?key=${process.env.YOUR_API_KEY}`)).data
+        let response = (await axios(`https://api.rawg.io/api/games/${id}?key=8add5b0008ac41029ef27f4754c5f16f`)).data
         let res = [response]
         let api = res.map(d => {
             return {
