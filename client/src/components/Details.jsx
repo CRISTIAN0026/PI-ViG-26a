@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetails } from '../redux/actions';
 import { useParams } from 'react-router-dom';
+import './Details.css';
 
 const Details = () =>{
     let dispatch = useDispatch()
@@ -16,7 +17,7 @@ const Details = () =>{
         return () =>{ details.pop()}
     },[details])
     return(
-        <div>
+        <div id='det'>
             {
                 details.length ?
                 <div>
