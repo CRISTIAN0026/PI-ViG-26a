@@ -1,6 +1,7 @@
 .form{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-image: url('../img/ADD.jpg');
     background-repeat: no-repeat;
@@ -12,11 +13,87 @@
 .form1{
     display: inline;
     width: 750px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
+.form2{
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: color 2s, background 2s;
+}
+.form2:hover{
+    background-color: gold;
+}
+.error{
+    color: red;
+}
 
+#name{
+    margin-top: 10px;
+    display: flex;
+    margin-left: 40px;
+}
+#name1{
+    width: 380px;
+    height: 21px;
+}
+#name3{
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+#image{
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+#rat1{
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+#release1{
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+#platforms13{
+    margin-top: 0%;
+    font-size: 12px;
+}
+#des12{
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+#genres12{
+    margin-top: 0%;
+    font-size: 12px;
+}
+.des{
+    display: flex;
+    margin-top: 10px;
+    margin-block-end: 20px;
+}
+
+.ratimg{
+    display: flex;
+    margin-left: 35px;
+    margin-block-end: 20px;
+}
 
 #select{
     display: flex;
+    justify-content: center;
+    margin-top: 20px ;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.GenPlat{
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 200px;
+    height: 100px;
 }

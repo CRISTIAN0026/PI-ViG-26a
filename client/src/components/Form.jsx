@@ -52,7 +52,10 @@ const Form = () =>{
         let rat = input.released.slice(0,5)
         let ret = input.released.slice(0,4)
         if(rat < 1950 || rat > 2022 || ret < 1950 || ret > 2022){
-            errors.released = 'add a year between 1950 and 2022'
+            errors.released = 'Add a year between 1950 and 2022'
+        }
+        if(input.image.length < 5 ){
+            errors.image = 'Add image'
         }
         return errors
     }
@@ -103,10 +106,25 @@ const Form = () =>{
             platforms: [...input.platforms, e.target.value]
         }))
     };
-    console.log(input.platforms)
-    console.log(input.genres)
+
+    const handleDelete = (e) =>{
+        setInput({
+            ...input,
+            genres: input.genres.filter(g => g !== e)
+        })
+    }
+    
+    const handleDelete1 = (e) => {
+        setInput({
+            ...input,
+            genres: input.platforms.filter(g => g !== e)
+        })
+    }
+
     return(
         <div className='form'>
+            <div>
+            <h1>Created Game</h1>
             <div className='form1'>
             
             <form onSubmit={(e) => handleOnSub(e)} className= 'form2'>
@@ -123,7 +141,7 @@ const Form = () =>{
             </select>
             {
                 errors.genres && (
-                    <p>{errors.genres}</p>
+                    <p className='error' id='genres12'>{errors.genres}</p>
                 )
             }
             </div>
@@ -139,26 +157,7 @@ const Form = () =>{
             </select>
             {
                 errors.platforms && (
-                    <p>{errors.platforms}</p>
-                )
-            }
-            </div>
-            </div>
-            <div>
-            <label>Name</label>
-            <input type="text" name='name' value={input.name} onChange={(e) => handleChange(e)}/>
-            {
-                errors.name && (
-                    <p>{errors.name}</p>
-                )
-            }
-            </div>
-            <div>
-            <label>Description</label>
-            <textarea type="text" name="description" id="" cols="10" rows="5" value={input.description} onChange={(e) => handleChange(e)}></textarea>
-            {
-                errors.description && (
-                    <p>{errors.description}</p>
+                    <p className='error' id='platforms13'>{errors.platforms}</p>
                 )
             }
             </div>
@@ -167,27 +166,93 @@ const Form = () =>{
             <input type="date" name='released' placeholder='00/00/0000' value={input.released} onChange={(e) => handleChange(e)}/>
             {
                 errors.released && (
-                    <p>{errors.released}</p>
+                    <p className='error' id='release1'>{errors.released}</p>
                 )
             }
             </div>
+            </div>
+            <div id='name'>
+            <label>Name</label>
+            <input type="text" name='name' id='name1' value={input.name} onChange={(e) => handleChange(e)}/>
             <div>
+            {
+                errors.name && (
+                    <p className='error' id='name3'>{errors.name}</p>
+                )
+            }
+            </div>
+            </div>
+            <div className='des'>
+            <label>Description</label>
+            <textarea type="text" name="description" id="" cols="50" rows="5" value={input.description} onChange={(e) => handleChange(e)}></textarea>
+            {
+                errors.description && (
+                    <p className='error' id='des12'>{errors.description}</p>
+                )
+            }
+            </div>
+            
+            <div className='ratimg'>
             <label >Rating</label>
             <input type="number" name='rating' value={input.rating} onChange={(e) => handleChange(e)}/>
             {
                 errors.rating && (
-                    <p>{errors.rating}</p>
+                    <p className='error' id='rat1'>{errors.rating}</p>
                 )
             }
             </div>
-            <div>
+            <div className='ratimg'>
             <label>Image</label>
             <input type="text" name='image' value={input.image} onChange={(e) => handleChange(e)}/>
+            <div>
+            {
+                errors.image && (
+                    <p className='error' id='image'>{errors.image}</p>
+                )
+            }
+            </div>
             </div>
             <button>CREATED GAME</button>
             </form>
             <div>
             <Link to='/home'><button>RETURN GAMES</button></Link>
+            </div>
+            </div>
+            </div>
+            <div>
+            <div className='GnPl'>
+                <div>
+                <h3>Genres</h3>
+                </div>
+                <div className='GenPlat'>
+                {input.genres.map(e => 
+            <div  >
+                <div>
+                <p >{e}</p>
+                </div>
+                <div >
+                <button   onClick={() => handleDelete(e)}>x</button>
+                </div>
+            </div>)
+            }
+                </div>
+            </div>
+            <div className='GnPl'>
+                <div>
+                <h3>Platforms</h3>
+                </div>
+                <div className='GenPlat'>
+                {input.platforms.map(e => 
+            <div  >
+                <div>
+                <p >{e}</p>
+                </div>
+                <div >
+                <button   onClick={() => handleDelete1(e)}>x</button>
+                </div>
+            </div>)
+            }
+                </div>
             </div>
             </div>
         </div>
