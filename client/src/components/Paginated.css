@@ -1,0 +1,10 @@
+.sa{
+    margin-left: 10px;
+    transition: color 2s, background 2s, border 1s;
+    cursor: pointer;
+}
+.sa:hover{
+    background-color: blueviolet;
+    border: 1px solid black;
+    border-radius: 10px;
+}

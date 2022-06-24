@@ -26,3 +26,36 @@
     width: auto;
     height: auto;
 }
+
+#al{
+    display: flex;
+    justify-content: space-around;
+}
+
+.all1{
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#ht{
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    background-color: green;
+}
+
+#uno{
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    background-color: red;
+}

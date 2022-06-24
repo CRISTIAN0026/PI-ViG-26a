@@ -1,4 +1,5 @@
 import React from "react";
+import './Paginated.css';
 
 const Paginated = ({ gamesForPage, games, paginated }) => {
     const pageNumbers = []
@@ -11,7 +12,7 @@ const Paginated = ({ gamesForPage, games, paginated }) => {
         <nav  >
             {pageNumbers &&
                     pageNumbers.map(n => ( 
-                        <button onClick={() => paginated(n)} key={n}>{n}</button>
+                        <button className="sa" onClick={() => paginated(n)} key={n}>{n}</button>
                     ))
                 }
         </nav>

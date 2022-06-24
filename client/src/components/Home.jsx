@@ -56,12 +56,16 @@ const Home = () =>{
             <div>
                 <h1>App VideoGames</h1>
             </div>
+            <div id='al'>
             <SearchBar/>
-            <Paginated games={games.length} gamesForPage={gameForPage} paginated={paginated}/>
-            <Link to='/game'><button>CREATE GAME</button></Link>
-            <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
             <div>
-                <select onChange={ e => handleGenres(e) } defaultValue='sort genres'>
+            <Link to='/game'><button id='ht'>CREATE GAME</button></Link>
+            </div>
+            <div>
+            <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
+            </div>
+            <div>
+                <select className='all1' onChange={ e => handleGenres(e) } defaultValue='sort genres'>
                 <option value='sort genres' disabled>SORT GENRES</option>
                 {
                 genres?.map(g => (
@@ -71,19 +75,21 @@ const Home = () =>{
                 </select>
             </div>
             <div>
-                <select onChange={ e => handleRating(e) } defaultValue ='SORT RATING'>
-                    <option value='SORT RATING' disabled>SORT RATING</option>
+                <select className='all1' onChange={ e => handleRating(e) } defaultValue ='SORT RATING'>
+                    <option value='SORT RATING' disabled>RATING</option>
                     <option value="asc">ascending rating</option>
                     <option value="dsc">descending rating</option>
                 </select>
             </div>
             <div>
-                <select onChange={ e => handleAlphabetically(e) } defaultValue='SORT ALPHABETICALLY'>
+                <select className='all1' onChange={ e => handleAlphabetically(e) } defaultValue='SORT ALPHABETICALLY'>
                 <option value='SORT ALPHABETICALLY' disabled>SORT ALPHABETICALLY</option>
                     <option value="az">ascending</option>
                     <option value="za">descending</option>
                 </select>
             </div>
+            </div>
+            <Paginated games={games.length} gamesForPage={gameForPage} paginated={paginated}/>
             <div className='cad'>
                 {
                     currentGames?.map(c => {
