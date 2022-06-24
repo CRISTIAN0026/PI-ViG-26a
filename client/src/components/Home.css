@@ -49,6 +49,11 @@
     background-color: green;
 }
 
+#ht:hover{
+    background-color: blue;
+    color: white;
+}
+
 #uno{
     border: 1px solid black;
     border-radius: 8px;
@@ -58,4 +63,9 @@
     margin-top: 10px;
     margin-block-end: 10px;
     background-color: red;
+}
+
+#uno:hover{
+    background-color: blueviolet;
+    color: white;
 }

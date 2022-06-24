@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetails } from '../redux/actions';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Details.css';
 
 const Details = () =>{
@@ -25,13 +25,20 @@ const Details = () =>{
                         details.map(d => {
                             return(
                                 <div>
-                                    <h1>Name: {d.name}</h1>
-                                    <img src={d.image} alt="not found" width='500px' height='500px'/>
-                                    <h3>Rating: {d.rating}</h3>
-                                    <h3>Released: {d.released}</h3>
-                                    <h3>Genres : {d.genres?.map(n => n.name + ', ')}</h3>
-                                    <h3>Platforms: {d.platforms[0].platform ?  d.platforms?.map(p => p.platform + ' / ') : d.platforms.map(d => d + ' / ') }</h3>
+                                    <h1>{d.name}</h1>
+                                    <div className='det02'>
+                                    <div>
+                                    <img src={d.image} alt="not found" id='iu' width='350px' height='350px'/>
+                                    </div>
+                                    <div className='det03'>
+                                    <h3 className='uni'>Rating: {d.rating}</h3>
+                                    <h3 className='uni'>Released: {d.released}</h3>
+                                    <h3 className='uni'>Genres : {d.genres?.map(n => n.name + ', ')}</h3>
+                                    <h3 className='uni'>Platforms: {d.platforms[0].platform ?  d.platforms?.map(p => p.platform + ' / ') : d.platforms.map(d => d + ' / ') }</h3>
                                     <p>Description: {d.description}</p>
+                                    </div>
+                                    </div>
+                                    <Link to='/home'><button id='li'>Return Games</button></Link>
                                 </div>
                             )
                         })

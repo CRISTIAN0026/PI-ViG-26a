@@ -1,5 +1,47 @@
 #det{
     border: 1px solid black;
     border-radius: 1px;
-    background-color: aqua;
+    background-image: url('../img/1045839.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1364px;
+    height: 633px;
+}
+
+#iu{
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.det02{
+    display: flex;
+    justify-content: space-around;
+}
+
+.det03{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 700px;
+    background-color: white;
+}
+
+.uni{
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#li{
+    width: 150px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    background-color: green;
+}
+#li:hover{
+    background-color: blueviolet;
 }
