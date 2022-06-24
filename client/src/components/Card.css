@@ -1,0 +1,19 @@
+.st{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 11px;
+}
+
+.imt{
+    border-radius: 10px;
+    border: 1px ;
+}
+
+.gth{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
+
+

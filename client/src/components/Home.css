@@ -1,0 +1,28 @@
+.cad{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.car1{
+    display: inline-flex;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-block-end: 15px;
+}
+
+#syu{
+    text-decoration: none;
+    color: black;
+}
+
+#mix{
+    background-color: rgb(241, 207, 9);
+    border: 0.5px solid black;
+    width: auto;
+    height: auto;
+}

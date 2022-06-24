@@ -1,12 +1,15 @@
 import React from 'react';
+import './Card.css'
 
 const Card = ({name, image, genres}) =>{
     
     return(
-        <div>
-            <h1>{name}</h1>
-            <img src={image} alt="not found" width='250px' height='250px'/>
-            <h5>{genres + ' '}</h5>
+        <div className='carM'>
+            <img src={image} alt="not found" width='200px' height='200px' className='imt'/>
+            <div className='yt'>
+            <h1  className='st'>{name}</h1>
+            </div>
+            <h5 className='gth'>{genres + ' '}</h5>
         </div>
     )
 }

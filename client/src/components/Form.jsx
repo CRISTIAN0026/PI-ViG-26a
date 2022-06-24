@@ -24,7 +24,7 @@ const Form = () =>{
     
     const validate = () => {
         let errors = {}
-        if (input.name.length < 2 ) errors.name = 'Add game name';
+        if (input.name.length < 2 || input.name.length > 30  ) errors.name = 'name with maximum 30 characters';
         for (let i = 0; i < input.name.length; i++) {
             let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ@"
             for (let j = 0; j < num.length; j++) {

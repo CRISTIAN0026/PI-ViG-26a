@@ -5,7 +5,7 @@ import Card from './Card';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import Paginated from './Paginated';
-
+import './Home.css';
 
 const Home = () =>{
     let games = useSelector(state => state.games)
@@ -52,7 +52,7 @@ const Home = () =>{
         setOrder(`${e.target.value}`)
     }
     return(
-        <div>
+        <div id='mix'>
             <div>
                 <h1>App VideoGames</h1>
             </div>
@@ -84,12 +84,12 @@ const Home = () =>{
                     <option value="za">descending</option>
                 </select>
             </div>
-            <div>
+            <div className='cad'>
                 {
                     currentGames?.map(c => {
                         return(
-                            <div>
-                            <Link to={'/home/' + c.id} >
+                            <div className='car1'>
+                            <Link to={'/home/' + c.id} id='syu' >
                                 <Card name={c.name} image={c.image} genres={c.genres?.map(n => n.name)}/>
                             </Link>
                             </div>
