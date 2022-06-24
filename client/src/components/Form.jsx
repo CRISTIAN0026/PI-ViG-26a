@@ -79,9 +79,9 @@ const Form = () =>{
     const handleOnSub = (e) =>{
         e.preventDefault()
         if(errors.name || errors.description || errors.rating 
-        || errors.diets || (input.name === '')) return alert("add date")
-        dispatch(addGame(input))
-        alert("Game created")
+        || errors.platforms || errors.released || errors.genres || errors.image || (input.name === '')) return alert("add date")
+        dispatch(addGame(input)) 
+        alert("Game created") 
         nav("/home", { replace : true });
     };
 
@@ -117,7 +117,7 @@ const Form = () =>{
     const handleDelete1 = (e) => {
         setInput({
             ...input,
-            genres: input.platforms.filter(g => g !== e)
+            platforms: input.platforms.filter(g => g !== e)
         })
     }
 
@@ -131,7 +131,7 @@ const Form = () =>{
             <div id='select'>
             <div>
             <label>Genres</label>
-            <select onChange={(e) => handleSelect(e)} defaultValue='genres' disabled={input.genres.length > 4 ? true : false}>
+            <select className='select11' onChange={(e) => handleSelect(e)} defaultValue='genres' disabled={input.genres.length > 4 ? true : false}>
                 <option value='genres' disabled>ADD GENRES</option>
             {
                 gen?.map(g => (
@@ -147,7 +147,7 @@ const Form = () =>{
             </div>
             <div>
             <label>Platforms</label>
-            <select onChange={e => handleSelect2(e)} defaultValue='platforms' disabled={input.platforms.length > 4 ? true : false}>
+            <select className='select11' onChange={e => handleSelect2(e)} defaultValue='platforms' disabled={input.platforms.length > 4 ? true : false}>
             <option value='platforms' disabled>ADD PLATFORMS</option>
             {
                 plat?.map(p => (
@@ -163,7 +163,7 @@ const Form = () =>{
             </div>
             <div>
             <label>Released</label>
-            <input type="date" name='released' placeholder='00/00/0000' value={input.released} onChange={(e) => handleChange(e)}/>
+            <input type="date" name='released' id='re01' value={input.released} onChange={(e) => handleChange(e)}/>
             {
                 errors.released && (
                     <p className='error' id='release1'>{errors.released}</p>
@@ -184,7 +184,7 @@ const Form = () =>{
             </div>
             <div className='des'>
             <label>Description</label>
-            <textarea type="text" name="description" id="" cols="50" rows="5" value={input.description} onChange={(e) => handleChange(e)}></textarea>
+            <textarea type="text" name="description" id="des20" cols="50" rows="5" value={input.description} onChange={(e) => handleChange(e)}></textarea>
             {
                 errors.description && (
                     <p className='error' id='des12'>{errors.description}</p>
@@ -194,7 +194,7 @@ const Form = () =>{
             
             <div className='ratimg'>
             <label >Rating</label>
-            <input type="number" name='rating' value={input.rating} onChange={(e) => handleChange(e)}/>
+            <input type="number" name='rating' className='se' value={input.rating} onChange={(e) => handleChange(e)}/>
             {
                 errors.rating && (
                     <p className='error' id='rat1'>{errors.rating}</p>
@@ -203,7 +203,7 @@ const Form = () =>{
             </div>
             <div className='ratimg'>
             <label>Image</label>
-            <input type="text" name='image' value={input.image} onChange={(e) => handleChange(e)}/>
+            <input type="text" name='image' className='se' value={input.image} onChange={(e) => handleChange(e)}/>
             <div>
             {
                 errors.image && (
@@ -211,11 +211,11 @@ const Form = () =>{
                 )
             }
             </div>
-            </div>
-            <button>CREATED GAME</button>
+            </div >
+            <button id='add'>CREATED GAME</button>
             </form>
-            <div>
-            <Link to='/home'><button>RETURN GAMES</button></Link>
+            <div id='home101'>
+            <Link to='/home'><button id='home100'>RETURN GAMES</button></Link>
             </div>
             </div>
             </div>
@@ -226,12 +226,12 @@ const Form = () =>{
                 </div>
                 <div className='GenPlat'>
                 {input.genres.map(e => 
-            <div  >
+            <div  className='card'>
                 <div>
-                <p >{e}</p>
+                <p className='GP'>{e}</p>
                 </div>
-                <div >
-                <button   onClick={() => handleDelete(e)}>x</button>
+                <div className='gtd'>
+                <button className='but'  onClick={() => handleDelete(e)}>x</button>
                 </div>
             </div>)
             }
@@ -243,12 +243,12 @@ const Form = () =>{
                 </div>
                 <div className='GenPlat'>
                 {input.platforms.map(e => 
-            <div  >
+            <div  className='card'>
                 <div>
-                <p >{e}</p>
+                <p className='GP'>{e}</p>
                 </div>
-                <div >
-                <button   onClick={() => handleDelete1(e)}>x</button>
+                <div className='gtd'>
+                <button  className='but' onClick={() => handleDelete1(e)}>x</button>
                 </div>
             </div>)
             }

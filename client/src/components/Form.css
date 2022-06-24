@@ -36,10 +36,25 @@
 #name1{
     width: 380px;
     height: 21px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+#des20{
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: aqua;
 }
 #name3{
     margin-top: 0%;
     font-size: 12px;
+}
+
+.se{
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: aqua;
 }
 
 #image{
@@ -90,10 +105,103 @@
     justify-content: space-around;
 }
 
+.GP{
+    font-size: 12px;
+}
 
 .GenPlat{
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 10px;
     border: 2px solid black;
-    width: 200px;
-    height: 100px;
+    width: 260px;
+    height: 180px;
+    position: relative;
+    transition: color 2s, background 2s;
+}
+
+.GenPlat:hover{
+    background-color: blueviolet;
+}
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    background-color: gold;
+    margin: 2px;
+}
+
+.but{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10px;
+    width: 1px;
+    height: 15px;
+    margin-left: 0px;
+    background-color: blueviolet;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gtd{
+    position: absolute;
+    left: 50px;
+}
+
+#add{
+    width: 150px;
+    height: 35px;
+    background-color: blueviolet;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+}
+
+#add:hover{
+    color: white;
+    
+}
+
+#home101{
+    margin-top: 15px;
+}
+
+#home100{
+    width: 150px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    background-color: green;
+}
+
+#home100:hover{
+    background-color: red;
+    color: white;
+}
+
+.select11{
+    background-color: aqua;
+    border: 0.5px solid black;
+    border-radius: 10px;
+}
+
+#re01{
+    background-color: aqua;
+    border: 0.5px solid black;
+    border-radius: 10px;
 }

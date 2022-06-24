@@ -45,7 +45,7 @@ export const addGame = (payload) => {
             let response = await axios.post('http://localhost:3001/videogames', payload)
             return response
         } catch (error) {
-            return alert(error)
+            return alert('Game not created')
         }
     }
 }
@@ -73,7 +73,7 @@ export const getByName = (payload) => {
                 payload: response
             })
         } catch (error) {
-            return alert('¡Game not found')
+            return alert('¡Game not found!')
         }
     }
 }
