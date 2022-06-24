@@ -65,6 +65,22 @@
     background-color: red;
 }
 
+#kl{
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+    margin-top: 10px;
+    margin-block-end: 10px;
+    background-color: rgb(15, 240, 240);
+}
+
+#kl:hover{
+    background-color: gray;
+    color: white;
+}
+
 #uno:hover{
     background-color: blueviolet;
     color: white;

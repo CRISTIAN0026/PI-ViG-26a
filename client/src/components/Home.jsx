@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGames, getGenres, filterAlphabetically, filterRating, filterGenres } from '../redux/actions';
+import { getGames, getGenres, filterAlphabetically, filterRating, filterGenres, getDb } from '../redux/actions';
 import Card from './Card';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
@@ -51,6 +51,11 @@ const Home = () =>{
         setPage(1)
         setOrder(`${e.target.value}`)
     }
+
+    const handleDB = (e) => {
+        e.preventDefault()
+        dispatch(getDb())
+    }
     return(
         <div id='mix'>
             <div>
@@ -62,8 +67,9 @@ const Home = () =>{
             <Link to='/game'><button id='ht'>CREATE GAME</button></Link>
             </div>
             <div>
-            <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
+            <button onClick={e =>{handleClick(e)}} id='uno'>ALL GAMES</button>
             </div>
+            <button onClick={e =>handleDB(e)} id='kl'>GAMES CREATED</button>
             <div>
                 <select className='all1' onChange={ e => handleGenres(e) } defaultValue='sort genres'>
                 <option value='sort genres' disabled>SORT GENRES</option>

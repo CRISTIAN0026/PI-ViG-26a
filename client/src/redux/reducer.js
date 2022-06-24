@@ -1,5 +1,5 @@
 
-import { GET_GAMES, GET_DETAILS, GET_GENRES, ADD_GAME, GET_BY_NAME, GET_PLATFORM, FILTER_GENRES, FILTER_ALPHABETICALLY, FILTER_RATING } from './actions';
+import { GET_GAMES, GET_DETAILS, GET_GENRES, ADD_GAME, GET_BY_NAME, GET_PLATFORM, GET_DB, FILTER_GENRES, FILTER_ALPHABETICALLY, FILTER_RATING } from './actions';
 
 let initialState = {
     games:[],
@@ -16,6 +16,11 @@ const reDucer = (state = initialState, action) =>{
                 ...state,
                 games: action.payload,
                 allGames: action.payload
+            }
+        case GET_DB:
+            return {
+                ...state,
+                games: action.payload
             }
         case GET_DETAILS:
             return {

@@ -9,6 +9,7 @@ export let GET_PLATFORM = 'GET_PLATFORM';
 export let FILTER_GENRES = 'FILTER_GENRES';
 export let FILTER_RATING = 'FILTER_RATING';
 export let FILTER_ALPHABETICALLY = 'FILTER_ALPHABETICALLY';
+export let GET_DB = 'GET_DB';
 
 
 export const getGames = () => {
@@ -91,6 +92,21 @@ export const getPlatform = () => {
         }
     }
 }
+
+export const getDb = () => {
+    return async (dispatch) => {
+        try {
+            let response = (await axios('/db')).data
+            return dispatch({
+                type: GET_DB,
+                payload: response
+            })
+        } catch (error) {
+            return error
+        }
+    }
+}
+
 
 export const filterGenres = (payload) => {
         return {
