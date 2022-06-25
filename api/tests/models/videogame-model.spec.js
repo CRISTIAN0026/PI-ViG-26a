@@ -6,14 +6,24 @@ describe('Videogame model', () => {
     console.log('Cri');
   });
 
-  describe('Parte UNO', () => {
-    it('no debe crear el personaje si no se envía el nombre', async () => {
+  describe('Model', () => {
+    it('No debe crear el personaje si no se envía el nombre', async () => {
       expect.assertions(1);
       try {
-        await Videogame.create({image: 'Cristian', rating: 3});
+        await Videogame.create({description: 'CR9 21 ', rating: 3});
       } catch (error) {
         expect(error.message).toBeDefined();
       }
     });
+
+    it('No debe crear el pesonaje sino se envia la descripcion', async () => {
+      expect.assertions(1);
+      try {
+        await Videogame.create({name: "Mario", released: "30/04/2002"})
+      } catch (error) {
+        expect(error.message).toBeDefined();
+      }
+    })
+
   })
 });
