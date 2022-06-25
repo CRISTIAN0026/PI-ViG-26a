@@ -1,4 +1,4 @@
-const { Videogame, conn } = require('../../src/db.js');
+const { Videogame, Genre, conn } = require('../../src/db.js');
 
 describe('Videogame model', () => {
   beforeAll(async () => {
@@ -53,6 +53,9 @@ describe('Videogame model', () => {
       });
     });
   })
-
+  afterAll(async () => {
+    await conn.sync({ force: true });
+    conn.close();
+  })
   
 });

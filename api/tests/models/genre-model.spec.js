@@ -15,4 +15,9 @@ describe('Genre model', () => {
             expect(error.message).toBeDefined();
         }
     })})
+    
+    afterAll(async () => {
+        await conn.sync({ force: true });
+        conn.close();
+    })
 })
