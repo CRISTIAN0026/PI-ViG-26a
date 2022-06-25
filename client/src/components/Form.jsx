@@ -113,7 +113,9 @@ const Form = () =>{
             genres: input.genres.filter(g => g !== e)
         })
     }
-    
+    let sk = 987
+    let mk = 3265
+
     const handleDelete1 = (e) => {
         setInput({
             ...input,
@@ -220,13 +222,13 @@ const Form = () =>{
             </div>
             </div>
             <div>
-            <div className='GnPl'>
+            <div className='GnPl' >
                 <div>
                 <h3>Genres</h3>
                 </div>
-                <div className='GenPlat'>
+                <div className='GenPlat' >
                 {input.genres.map(e => 
-            <div  className='card'>
+            <div  className='card' key={sk++}>
                 <div>
                 <p className='GP'>{e}</p>
                 </div>
@@ -243,7 +245,7 @@ const Form = () =>{
                 </div>
                 <div className='GenPlat'>
                 {input.platforms.map(e => 
-            <div  className='card'>
+            <div  className='card' key={mk++}>
                 <div>
                 <p className='GP'>{e}</p>
                 </div>

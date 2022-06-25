@@ -17,6 +17,8 @@ const Home = () =>{
     const indexOfLastGame = currentPage * gameForPage
     const indexOfFirstGame = indexOfLastGame - gameForPage
     const currentGames = games.slice(indexOfFirstGame, indexOfLastGame)
+    
+    let num = 853
 
     const paginated = (pageNumber) => {
         setPage(pageNumber)
@@ -56,6 +58,7 @@ const Home = () =>{
         e.preventDefault()
         dispatch(getDb())
     }
+    console.log(currentGames)
     return(
         <div id='mix'>
             <div>
@@ -75,7 +78,7 @@ const Home = () =>{
                 <option value='sort genres' disabled>SORT GENRES</option>
                 {
                 genres?.map(g => (
-                    <option value={g.name}>{g.name}</option>
+                    <option key={g.name} value={g.name}>{g.name}</option>
                 ))   
                 }
                 </select>
@@ -100,9 +103,9 @@ const Home = () =>{
                 {
                     currentGames?.map(c => {
                         return(
-                            <div className='car1'>
-                            <Link to={'/home/' + c.id} id='syu' >
-                                <Card name={c.name} image={c.image} genres={c.genres?.map(n => n.name)}/>
+                            <div className='car1' key={num++} >
+                            <Link to={'/home/' + c.id} id='syu'  >
+                                <Card name={c.name}  image={c.image} genres={c.genres?.map(n => n.name)} key={c.id}/>
                             </Link>
                             </div>
                         )

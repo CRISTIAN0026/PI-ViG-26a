@@ -60,6 +60,7 @@ const getDetails = async(id) =>{
         let res = [response]
         let api = res.map(d => {
             return {
+                id: d.id,
                 name: d.name,
                 description: d.description,
                 image: d.background_image,

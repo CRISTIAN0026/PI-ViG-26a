@@ -24,7 +24,7 @@ const Details = () =>{
                     {
                         details.map(d => {
                             return(
-                                <div>
+                                <div key={d.id}>
                                     <h1>{d.name}</h1>
                                     <div className='det02'>
                                     <div>
