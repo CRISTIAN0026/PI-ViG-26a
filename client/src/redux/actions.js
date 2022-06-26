@@ -1,4 +1,5 @@
 import axios from 'axios';
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 export let GET_GAMES = 'GET_GAME';
 export let GET_GENRES = 'GET_GENRES';

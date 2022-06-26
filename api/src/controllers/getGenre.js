@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { Genre } = require('../db');
-
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const getApiGenre = async() =>{
     try {

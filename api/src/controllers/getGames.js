@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { Genre, Videogame } = require('../db');
 const  response51  = require('../plat/Platform')
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const getApiInfo = async () =>{
     try {
