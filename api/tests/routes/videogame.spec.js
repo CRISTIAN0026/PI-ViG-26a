@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const request = require('supertest');
-const { Videogame, conn } = require('../../src/db.js');
+const { conn } = require('../../src/db.js');
 const app = require('../../src/app');
 
 
@@ -109,7 +109,8 @@ describe('Videogame routes', () => {
       })
     })
   })
-  afterAll(() => {
+  afterAll(async () => {
+    await conn.sync({ force: true });
     conn.close();
   })
   
