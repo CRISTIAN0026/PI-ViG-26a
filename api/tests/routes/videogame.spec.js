@@ -82,31 +82,30 @@ describe('Videogame routes', () => {
         }
       ])
     })
-
-    describe("POST/videogames", () => {
-      it("Deberia crear un video juego", async () =>{ 
-        const rpg = await request(app).post('/videogames')
-        .send({name: 'Cristian', 
-        image: 'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg', 
-        description:"asdsadasdadasdasdas", 
+  })
+  describe("POST/videogames", () => {
+    it("Deberia crear un video juego", async () =>{ 
+      const rpg = await request(app).post('/videogames')
+      .send({name: 'Cristian', 
+      image: 'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg', 
+      description:"asdsadasdadasdasdas", 
+      released: "21/09/1997",
+      rating: 5,
+      genres: ["Action", "Adventure"],
+      platforms: [
+        "PlayStation 4"
+      ]});
+      expect(rpg.statusCode).toBe(200);
+      expect(rpg.body).toEqual({
+        id: rpg.body.id,
+        name: "Cristian",
+        image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+        description: "asdsadasdadasdasdas",
         released: "21/09/1997",
         rating: 5,
-        genres: ["Action", "Adventure"],
         platforms: [
           "PlayStation 4"
-        ]});
-        expect(rpg.statusCode).toBe(200);
-        expect(rpg.body).toEqual({
-          id: rpg.body.id,
-          name: "Cristian",
-          image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-          description: "asdsadasdadasdasdas",
-          released: "21/09/1997",
-          rating: 5,
-          platforms: [
-            "PlayStation 4"
-          ]
-        })
+        ]
       })
     })
   })
