@@ -58,7 +58,7 @@ const Home = () =>{
         e.preventDefault()
         dispatch(getDb())
     }
-    console.log(currentGames)
+    
     return(
         <div id='mix'>
             <div>
