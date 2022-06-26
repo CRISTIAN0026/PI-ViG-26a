@@ -56,12 +56,12 @@ const reDucer = (state = initialState, action) =>{
         case FILTER_ALPHABETICALLY:
             let game = [...state.games]       
         game = action.payload === 'az' ?
-        state.games.sort(function(a, b) {
+        state.games.sort((a, b) => {
             if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
             if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
             return 0;
         }) :
-        state.games.sort(function(a, b) {
+        state.games.sort((a, b) => {
             if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
             if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
             return 0;
@@ -73,12 +73,12 @@ const reDucer = (state = initialState, action) =>{
         case FILTER_RATING:
             let rating1 = [...state.games] 
             rating1 = action.payload === 'asc' ?
-            state.games.sort(function(a, b) {
+            state.games.sort((a, b) => {
             if (a.rating > b.rating) return 1;
             if (a.rating < b.rating) return -1;
             return 0;
         }) :
-        state.games.sort(function(a, b) {
+        state.games.sort((a, b) => {
             if (a.rating < b.rating) return 1;
             if (a.rating > b.rating) return -1;
             return 0;

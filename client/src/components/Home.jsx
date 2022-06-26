@@ -53,7 +53,7 @@ const Home = () =>{
         setPage(1)
         setOrder(`${e.target.value}`)
     }
-
+    
     const handleDB = (e) => {
         e.preventDefault()
         dispatch(getDb())
@@ -101,7 +101,7 @@ const Home = () =>{
             <Paginated games={games.length} gamesForPage={gameForPage} paginated={paginated}/> 
             <div className='cad'>
                 {
-                currentGames?.map(c => {
+                currentGames.length > 0 ? currentGames?.map(c => {
                         return(
                             <div className='car1' key={num++} >
                             <Link to={'/home/' + c.id} id='syu'  >
@@ -109,7 +109,7 @@ const Home = () =>{
                             </Link>
                             </div>
                         )
-                    }) 
+                    }) : <p>Loading</p>
                 }
             </div>
         </div>
