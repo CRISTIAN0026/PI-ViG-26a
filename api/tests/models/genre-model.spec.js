@@ -1,14 +1,14 @@
 const { Genre, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+//const { expect } = require('chai');
 
 describe('Genre model', () => {
     beforeAll(async () => {
         await conn.sync({ force: true });
     });
 
-    describe('Parte UNO', () => {
+    describe('Model', () => {
         it('No debe crear el genero sino trae el nombre', async () => {
-        expect.assertions(1);
+        //expect.assertions(1);
         try {
             await Genre.create({name: 'Action'});
         } catch (error) {
