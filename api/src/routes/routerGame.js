@@ -20,13 +20,13 @@ router.post('/', async(req, res) =>{
             let dbGenre = await Genre.findAll({
                 where:{ name: genres }
             })
+            console.log(dbGenre)
             newGame.addGenre(dbGenre);
             res.send(newGame)
         }else{
             res.status(400).send('Is already found')
         }
     } catch (error) {
-        console.log(error)
         res.status(400).send(error)
     }
 });
