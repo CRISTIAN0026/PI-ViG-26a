@@ -54,8 +54,9 @@ const reDucer = (state = initialState, action) =>{
                 games: rex
             }
         case FILTER_ALPHABETICALLY:
-            let game = [...state.games]       
-        game = action.payload === 'az' ?
+            //let game = [...state.games]
+            //console.log(game)       
+        let game = action.payload === 'az' ?
         state.games.sort((a, b) => {
             if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
             if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
