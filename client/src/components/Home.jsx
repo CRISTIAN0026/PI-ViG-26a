@@ -65,7 +65,7 @@ const Home = () =>{
                 <h1>App VideoGames</h1>
             </div>
             <div id='al'>
-            <SearchBar/> 
+            <SearchBar setPage={setPage}/> 
             <div>
             <Link to='/game'><button id='ht'>CREATE GAME</button></Link>
             </div>
@@ -105,7 +105,7 @@ const Home = () =>{
                         return(
                             <div className='car1' key={num++} >
                             <Link to={'/home/' + c.id} id='syu'  >
-                                <Card name={c.name}  image={c.image} genres={c.genres?.map(n => n.name)} key={c.id}/>
+                                <Card name={c.name}  image={c.image} rating={c.rating} genres={c.genres?.map(n => n.name)} key={c.id}/>
                             </Link>
                             </div>
                         )
