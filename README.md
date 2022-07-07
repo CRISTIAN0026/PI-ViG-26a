@@ -36,6 +36,7 @@ node -v
 npm -v
 ```
 
+En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
 
 ```env
 DB_USER=usuariodepostgres
